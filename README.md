@@ -1,72 +1,72 @@
 # Smart Rescue Helmet
 
-Smart Rescue Helmet là dự án mũ bảo hiểm thông minh tích hợp IoT, được thiết kế để phát hiện tai nạn, cảnh báo nồng độ cồn và hỗ trợ định vị khẩn cấp cho người tham gia giao thông. Hệ thống sử dụng Arduino kết hợp với các cảm biến và module liên lạc để gửi thông báo tự động đến người thân khi có sự cố xảy ra.
+**Smart Rescue Helmet** là dự án mũ bảo hiểm thông minh tích hợp IoT, được thiết kế để phát hiện tai nạn, cảnh báo nồng độ cồn và hỗ trợ định vị khẩn cấp cho người tham gia giao thông. Hệ thống sử dụng Arduino kết hợp với các cảm biến và module liên lạc để gửi thông báo tự động đến người thân khi có sự cố xảy ra.
 
-## Tinh nang noi bat
+## Tính năng nổi bật
 
-* **Phat hien tai nan (Fall Detection): Tu dong phat hien khi nguoi dung bi nga xe (dua tren goc nghieng > 70 do).
-* **Canh bao nong do con: Tich hop cam bien khi gas de phat hien nong do con trong hoi tho nguoi lai, gui canh bao neu vuot muc cho phep.
-* **Nut khan cap (SOS Button): Nguoi dung co the chu dong bam nut de goi dien/nhan tin cau cuu khi gap cuop giat hoac nguy hiem khac.
-* **Dinh vi GPS: Tu dong gui tin nhan chua toa do (link Google Maps) den so dien thoai nguoi than khi co su co.
-* **Giam sat tu xa: Nguoi than co the goi dien vao so SIM tren mu de nhan tin nhan tra ve vi tri hien tai cua nguoi doi.
-* **Phat hien doi mu: Cam bien hong ngoai giup he thong chi kich hoat cac tinh nang canh bao khi nguoi dung thuc su doi mu len dau (tiet kiem pin va tranh bao gia).
+* Phát hiện tai nạn (Fall Detection): Tự động phát hiện khi người dùng bị ngã xe (dựa trên góc nghiêng > 70 độ).
+* Cảnh báo nồng độ cồn: Tích hợp cảm biến khí gas để phát hiện nồng độ cồn trong hơi thở người lái, gửi cảnh báo nếu vượt mức cho phép.
+* Nút khẩn cấp (SOS Button): Người dùng có thể chủ động bấm nút để gọi điện/nhắn tin cầu cứu khi gặp cướp giật hoặc nguy hiểm khác.
+* Định vị GPS: Tự động gửi tin nhắn chứa tọa độ (link Google Maps) đến số điện thoại người thân khi có sự cố.
+* Giám sát từ xa: Người thân có thể gọi điện vào số SIM trên mũ để nhận tin nhắn trả về vị trí hiện tại của người đội.
+* Phát hiện đội mũ: Cảm biến hồng ngoại giúp hệ thống chỉ kích hoạt các tính năng cảnh báo khi người dùng thực sự đội mũ lên đầu (tiết kiệm pin và tránh báo giả).
 
-## Phan cung yeu cau
+## Phần cứng yêu cầu
 
-Du an su dung cac linh kien chinh sau:
+Dự án sử dụng các linh kiện chính sau:
 
-1.  **Vi dieu khien:** Arduino Nano (hoac Arduino Pro Mini).
-2.  **Module Sim/GPS:** A9G (GPRS/GSM+GPS/BDS) de nghe goi, nhan tin va dinh vi.
-3.  **Cam bien gia toc:** MPU6050 (Do goc nghieng de phat hien nga).
-4.  **Cam bien nong do con:** MQ-3.
-5.  **Cam bien vat can:** HW-488 (Hong ngoai) de phat hien trang thai doi mu.
-6.  **Nguon:** Pin Li-Po 1000mAh va mach sac.
-7.  **Khac:** Coi chip (Buzzer), nut nhan, cong tac, day noi.
+1.  Vi điều khiển: Arduino Nano (hoặc Arduino Pro Mini).
+2.  Module Sim/GPS: A9G (GPRS/GSM+GPS/BDS) để nghe gọi, nhắn tin và định vị.
+3.  Cảm biến gia tốc: MPU6050 (Đo góc nghiêng để phát hiện ngã).
+4.  Cảm biến nồng độ cồn: MQ-3.
+5.  Cảm biến vật cản: HW-488 (Hồng ngoại) để phát hiện trạng thái đội mũ.
+6.  Nguồn Pin Li-Po 1000mAh và mạch sạc.
+7.  Khác: Còi chíp (Buzzer), nút nhấn, công tắc, dây nối.
 
-## So do ket noi (Pinout)
+## Sơ đồ kết nối (Pinout)
 
-Ket noi cac module voi Arduino Nano nhu sau (Tham khao so do nguyen ly):
+Kết nối các module với Arduino Nano như sau (Tham khảo sơ đồ nguyên lý):
 
-### 1. MPU6050 (Giao tiep I2C)
-* VCC: 5V
-* GND: GND
-* SCL: A5
-* SDA: A4
+### 1. MPU6050 (Giao tiếp I2C)
+* **VCC:** 5V
+* **GND:** GND
+* **SCL:** A5
+* **SDA:** A4
 
 ### 2. Module A9G
-* VCC: 5V (Yeu cau nguon dong du lon)
+* VCC: 5V (Yêu cầu nguồn dòng đủ lớn)
 * GND: GND
-* TX: Noi voi chan RX cua Arduino (hoac chan Digital mem duoc quy dinh)
-* RX: Noi voi chan TX cua Arduino
+* TX: Nối với chân RX của Arduino (hoặc chân Digital mềm được quy định)
+* RX: Nối với chân TX của Arduino
 
-### 3. Cam bien MQ-3
-* VCC: 5V
-* GND: GND
-* A0 (Analog Output): A0 (hoac chan Analog khac tuy code)
+### 3. Cảm biến MQ-3
+* **VCC:** 5V
+* **GND:** GND
+* **A0 (Analog Output):** A0 (hoặc chân Analog khác tùy code)
 
-### 4. Cam bien Hong ngoai (HW-488)
-* OUT: D4 (Chan Digital 4 - kich hoat he thong)
+### 4. Cảm biến Hồng ngoại (HW-488)
+* **OUT:** D4 (Chân Digital 4 - kích hoạt hệ thống)
 
-## Nguyen ly hoat dong
+## Nguyên lý hoạt động
 
-1.  **Kich hoat:** He thong chi hoat dong khi cam bien hong ngoai phat hien khoang cach < 2cm (dang doi mu).
-2.  **Phat hien nga:**
-    * Neu cam bien MPU6050 do duoc goc nghieng > 70 do va duy tri trong 5 giay -> He thong hieu la da bi nga.
-    * Coi bao dong se keu. Sau 10 giay canh bao am thanh, neu nguoi dung khong tat bao dong bang nut nhan, he thong se kich hoat goi dien va gui SMS toa do.
-3.  **Canh bao ruou bia:**
-    * Neu MQ-3 phat hien nong do con vuot nguong -> Gui SMS canh bao cho nguoi than "Nguoi nha cua ban bi say ruou...".
-4.  **Dinh vi chu dong:**
-    * Khi so dien thoai cua nguoi than (da duoc lap trinh truoc) goi den SIM tren mu, he thong se tu dong ngat may va gui lai tin nhan chua toa do GPS.
+1.  Kích hoạt: Hệ thống chỉ hoạt động khi cảm biến hồng ngoại phát hiện khoảng cách < 2cm (đang đội mũ).
+2.  Phát hiện ngã:
+    * Nếu cảm biến MPU6050 đo được góc nghiêng > 70 độ và duy trì trong 5 giây -> Hệ thống hiểu là đã bị ngã.
+    * Còi báo động sẽ kêu. Sau 10 giây cảnh báo âm thanh, nếu người dùng không tắt báo động bằng nút nhấn, hệ thống sẽ kích hoạt gọi điện và gửi SMS tọa độ.
+3.  Cảnh báo rượu bia:
+    * Nếu MQ-3 phát hiện nồng độ cồn vượt ngưỡng -> Gửi SMS cảnh báo cho người thân *"Người nhà của bạn bị say rượu..."*.
+4.  Định vị chủ động:
+    * Khi số điện thoại của người thân (đã được lập trình trước) gọi đến SIM trên mũ, hệ thống sẽ tự động ngắt máy và gửi lại tin nhắn chứa tọa độ GPS.
 
-## Huong dan su dung
+## Hướng dẫn sử dụng
 
-1.  Nap code vao Arduino Nano (su dung Arduino IDE).
-2.  Lap the SIM (co dang ky mang) vao module A9G.
-3.  Khoi dong nguon mu bao hiem.
-4.  Doi mu len dau de he thong bat dau giam sat.
-5.  Luu y: Can hieu chinh do nhay cua cam bien MQ-3 va MPU6050 cho phu hop voi thuc te.
+1.  Nạp code vào Arduino Nano (sử dụng Arduino IDE).
+2.  Lắp thẻ SIM (có đăng ký mạng) vào module A9G.
+3.  Khởi động nguồn mũ bảo hiểm.
+4.  Đội mũ lên đầu để hệ thống bắt đầu giám sát.
+5.  **Lưu ý:** Cần hiệu chỉnh độ nhạy của cảm biến MQ-3 và MPU6050 cho phù hợp với thực tế.
 
-## Tac gia
+## Tác giả
 
-Duan duoc thuc hien boi hoc sinh truong THPT Phan Boi Chau.
-Tai lieu tham khao: 011_BAO CAO.pdf
+Dự án được thực hiện bởi học sinh trường THPT Phan Bội Châu.
+Tài liệu tham khảo: `011_BÁO CÁO.pdf`
