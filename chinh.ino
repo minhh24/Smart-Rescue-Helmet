@@ -130,13 +130,13 @@ void loop() {
           delay(20);
           
        gtbut = digitalRead(but);
-  //Serial.print("Nút nhấn: "); Serial.println(gtbut);  
+  //Serial.print("Nút nhấn: "); Se rial.println(gtbut);  
   button.tick(); //Kiểm tra trạng thái nút nhấn    
                
      receive_message();
     mpu6050.update();
 
-     incomingData = SIM900.readString(); // Get the data from the serial port.  
+     incomingData = SIM900.readString();     // Get the data from the serial port.  
      Serial.print(incomingData); 
      
       if(incomingData.indexOf("RING") != -1){
@@ -204,7 +204,7 @@ void receive_message() //doc tn
   {
     if (SIM900.available() > 0)
     {
-      incomingData = SIM900.readString(); // Get the data from the serial port.
+      incomingData = SIM900.readString(); // Get the data fro  the serial port.
       Serial.print(incomingData); 
       delay(10); 
     }
@@ -226,17 +226,17 @@ void receive_message() //doc tn
     i++;
     }
         
-        SIM900.println("ATD+84916254336;"); // ATDxxxxxxxxxx; -- watch out here for semicolon at the end, replace your number here!!
-    Serial.println("Calling  "); // print response over serial port
+        SIM900.println("ATD+84916254336;"); 
+    Serial.println("Calling  "); 
     delay(1000);     
     
     SIM900.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
-    delay(1000);  // Delay of 1000 milli seconds or 1 second
+    delay(1000);                    // Delay of 1000 milli seconds or 1 second
     SIM900.println("AT+CMGS=\"+84916254336\"\r"); // Replace x with mobile number
     delay(1000);
-    SIM900.println("toi dang bi tai nan tai:  https://www.google.com/maps/place/12.686424,%20108.046166 ");// The SMS text you want to send
+    SIM900.println("toi dang bi tai nan tai:  https://www.google.com/maps/place/12.686424,%20108.046166 ");
     delay(100);
-     SIM900.println((char)26);// ASCII code of CTRL+Z
+     SIM900.println((char)26);
     delay(1000);   
 
       for (int i=0; i<=300; )  {
@@ -264,12 +264,12 @@ void receive_message() //doc tn
     
         Serial.print("nguoi nha goi");
     SIM900.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
-    delay(1000);  // Delay of 1000 milli seconds or 1 second
+    delay(1000);                    // Delay of 1000 milli seconds or 1 second
     SIM900.println("AT+CMGS=\"+84916254336\"\r"); // Replace x with mobile number
     delay(1000);
-    SIM900.println("thiet bi dang o: https://www.google.com/maps/place/12.686424,%20108.046166 ");// The SMS text you want to send
+    SIM900.println("thiet bi dang o: https://www.google.com/maps/place/12.686424,%20108.046166 ");
     delay(100);
-     SIM900.println((char)26);// ASCII code of CTRL+Z
+     SIM900.println((char)26);
     delay(1000);
   }
   
