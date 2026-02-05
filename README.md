@@ -66,7 +66,5 @@ Kết nối các module với Arduino Nano như sau (Tham khảo sơ đồ nguy�
 4.  Đội mũ lên đầu để hệ thống bắt đầu giám sát.
 5.  **Lưu ý:** Cần hiệu chỉnh độ nhạy của cảm biến MQ-3 và MPU6050 cho phù hợp với thực tế.
 
-## Tác giả
 
-Dự án được thực hiện bởi học sinh trường THPT Phan Bội Châu.
-Tài liệu tham khảo: `011_BÁO CÁO.pdf`
+Tài liệu tham khảo: https://drive.google.com/file/d/16w_wcLAUGacuCT2TAENuwL0E4bo7x4VF/view?usp=sharing
