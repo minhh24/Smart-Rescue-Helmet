@@ -68,3 +68,4 @@ Kết nối các module với Arduino Nano như sau (Tham khảo sơ đồ nguy�
 
 
 Tài liệu tham khảo: https://drive.google.com/file/d/16w_wcLAUGacuCT2TAENuwL0E4bo7x4VF/view?usp=sharing
+link video demo: https://www.youtube.com/watch?v=3HnA7TvsIk4&t=4s
