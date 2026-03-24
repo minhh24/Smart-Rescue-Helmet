@@ -28,10 +28,10 @@ Dự án sử dụng các linh kiện chính sau:
 Kết nối các module với Arduino Nano như sau (Tham khảo sơ đồ nguyên lý):
 
 ### 1. MPU6050 (Giao tiếp I2C)
-* **VCC:** 5V
-* **GND:** GND
-* **SCL:** A5
-* **SDA:** A4
+*VCC:** 5V
+*GND:** GND
+*SCL:** A5
+*SDA:** A4
 
 ### 2. Module A9G
 * VCC: 5V (Yêu cầu nguồn dòng đủ lớn)
